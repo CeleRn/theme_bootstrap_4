@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+  <template id="layout" name="Main layout" inherit_id="portal.frontend_layout">
+    <xpath expr="//header" position="replace">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" arias-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"/>
+                </button>
+                <a class="navbar-brand" href="/">
+                  <img height="50" t-attf-src="{{website.image_url(res_company, 'logo')}}" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
+                </a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                  <ul class="navbar-nav" id="top_menu">
+                    <li class="divider" t-ignore="true" t-if="not user_id._is_public()" />
+                    <li class="nav-item dropdown" t-ignore="true" t-if="not user_id._is_public()">
+                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        <i class='fa fa-user'/> <span t-esc="user_id.name[:23] + '...' if user_id.name and len(user_id.name) &gt; 25 else user_id.name"/>
+                      </a>
+                      <ul class="dropdown-menu js_usermenu" role="menu">
+                        <li id="o_logout"><a class="dropdown-item" t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+        </header>
+    </xpath>
+    
+    <xpath expr="//header//ul[@id='top_menu']/li[hasclass('divider')]" position="attributes">
+        <attribute name="t-if">website.user_id != user_id</attribute>
+    </xpath>
+    
+    <xpath expr="//header//ul[@id='top_menu']/li[hasclass('dropdown')]" position="attributes">
+        <attribute name="t-if">website.user_id != user_id</attribute>
+    </xpath>
+    
+    <xpath expr="//header//ul[@id='top_menu']/li[hasclass('divider')]" position="before">
+        <t t-foreach="website.menu_id.child_id" t-as="submenu">
+            <t t-call="theme_bootstrap_4.submenu"/>
+        </t>
+    </xpath>
+    
+  </template>
+
+
+  <template id="sign_in" inherit_id="theme_bootstrap_4.layout" name="Show Sign In">
+      <xpath expr="//ul[@id='top_menu']" position="inside">
+        <li class="divider" groups="base.group_public"/>
+        <li class="nav-item" groups="base.group_public">
+          <a class="nav-link" t-attf-href="/web/login">
+            <i class='fa fa-user'/>
+          </a>
+        </li>
+      </xpath>
+  </template>
+
+
+  <template id="submenu" name="Submenu">
+    <li t-if="submenu.is_visible and not submenu.child_id.filtered(lambda menu: menu.is_visible)" t-att-class="
+        'nav-item active' if submenu.clean_url() and unslug_url(request.httprequest.path) == unslug_url(submenu.clean_url()) else 'nav-item'
+        ">
+        <a t-att-href="submenu.clean_url()" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None" class="nav-link">
+            <span t-field="submenu.name"/>
+        </a>
+    </li>
+    <li t-if="submenu.is_visible and submenu.child_id.filtered(lambda menu: menu.is_visible)" t-attf-class="nav-item dropdown #{
+      (submenu.clean_url() and submenu.clean_url() != '/' and any([request.httprequest.path == child.url for child in submenu.child_id if child.url]) or
+       (submenu.clean_url() and request.httprequest.path == submenu.clean_url())) and 'active'
+      }">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+        <span t-field="submenu.name"/> <span class="caret" t-ignore="true"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        <t t-foreach="submenu.child_id" t-as="submenu">
+          <t t-call="theme_bootstrap_4.dropdown-submenu-item"/>
+        </t>
+      </ul>
+    </li>
+  </template>
+  
+  <template id="dropdown-submenu-item" name="Dropdown Submenu item">
+    <li t-if="submenu.is_visible and not submenu.child_id.filtered(lambda menu: menu.is_visible)">
+      <a t-att-href="submenu.clean_url()" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None" t-field="submenu.name" class="dropdown-item"/>
+    </li>
+  </template>
+  
+  <template id="my_account_link" name="Link to frontend portal" inherit_id="theme_bootstrap_4.layout">
+      <xpath expr="//li[@id='o_logout']" position="before">
+        <li><a href="/my/home" class="dropdown-item" role="menuitem">My Account</a></li>
+      </xpath>
+    </template>
+    
+</odoo>

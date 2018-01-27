@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+	<template id="assets_frontend" inherit_id="website.assets_frontend" name="Assets Frontend">
+		<!--  <xpath expr="link[last()]" position="after">-->
+		<!--	<link rel="stylesheet" href="/theme_bootstrap_4/static/src/less/custom.less"/>-->
+		<!--  </xpath>-->
+
+		<xpath expr="link[@href='/web/static/src/less/import_bootstrap.less']" position="replace"></xpath>
+
+		<!--<xpath expr="link[@href='/web_editor/static/src/less/web_editor.variables.less']" position="replace"></xpath>-->
+		
+		
+		
+		<xpath expr="link[@href='/web_editor/static/src/less/web_editor.common.less']" position="replace"></xpath>
+		<xpath expr="link[@href='/portal/static/src/less/website.ui.less']" position="replace"></xpath>
+		<xpath expr="link[@href='/portal/static/src/less/website.wrapwrap.less']" position="replace"></xpath>
+		<!--<xpath expr="link[@href='/portal/static/src/less/bootstrap.extend.less']" position="replace"></xpath>-->
+		<!--<xpath expr="link[@href='/portal/static/src/less/portal_frontend.less']" position="replace"></xpath>-->
+		<xpath expr="link[@href='/website/static/src/less/website.ui.components.less']" position="replace"></xpath>
+		<xpath expr="link[@href='/website/static/src/less/website.snippets.less']" position="replace"></xpath>
+		<xpath expr="link[@href='/website/static/src/less/website.zoomodoo.less']" position="replace"></xpath>
+		
+		
+		<!--<xpath expr="link[@href='/website_mail/static/src/css/website_mail.less']" position="replace"></xpath>-->
+		
+		
+		
+		<!-- Add Bootstrap 4-->
+		<xpath expr="script[@src='/web/static/src/js/services/session.js']" position="after">
+			<link rel="stylesheet" type="text/css" href="/theme_bootstrap_4/static/css/main.css"/>
+			
+			
+			<script src="/theme_bootstrap_4/static/lib/popper.js/dist/umd/popper.js"></script>
+			
+			<script src="/theme_bootstrap_4/static/lib/bootstrap/js/dist/util.js"></script>
+			<script src="/theme_bootstrap_4/static/lib/bootstrap/js/dist/alert.js"></script>
+			<script src="/theme_bootstrap_4/static/lib/bootstrap/js/dist/button.js"></script>
+			<script src="/theme_bootstrap_4/static/lib/bootstrap/js/dist/carousel.js"></script>
+			<script src="/theme_bootstrap_4/static/lib/bootstrap/js/dist/collapse.js"></script>
+			<script src="/theme_bootstrap_4/static/lib/bootstrap/js/dist/dropdown.js"></script>
+			<script src="/theme_bootstrap_4/static/lib/bootstrap/js/dist/modal.js"></script>
+			<script src="/theme_bootstrap_4/static/lib/bootstrap/js/dist/scrollspy.js"></script>
+			<script src="/theme_bootstrap_4/static/lib/bootstrap/js/dist/tab.js"></script>
+			<script src="/theme_bootstrap_4/static/lib/bootstrap/js/dist/tooltip.js"></script>
+			<script src='/theme_bootstrap_4/static/lib/bootstrap/js/dist/popover.js'></script>
+			<!--<script type="text/javascript" src="/web/static/src/js/libs/bootstrap.js"></script>-->
+			<script type="text/javascript" src="/theme_bootstrap_4/static/js/bootstrap.js"></script>
+		</xpath>
+		
+		
+	</template>
+
+
+
+	<template id="assets_common" inherit_id="web.assets_common" name="Common Assets">
+		
+		<xpath expr="t[@t-call='web.less_helpers']" position="replace"></xpath>
+	  
+		<!--<xpath expr="link[@href='/website/static/src/less/website.snippets.less']" position="replace"></xpath>-->
+		<!--<xpath expr="link[@href='/web_editor/static/src/less/web_editor.variables.less']" position="replace"></xpath>-->
+		<!--<xpath expr="link[@href='/web/static/lib/jquery.ui/jquery-ui.css']" position="replace"></xpath>-->
+		
+		<!--<xpath expr="link[@href='/web/static/lib/fontawesome/css/font-awesome.css']" position="replace"></xpath>-->
+		<xpath expr="link[@href='/web/static/lib/bootstrap-datetimepicker/src/less/_bootstrap-datetimepicker.less']" position="replace"></xpath>
+		<xpath expr="link[@href='/web/static/lib/select2/select2.css']" position="replace"></xpath>
+		<xpath expr="link[@href='/web/static/lib/select2-bootstrap-css/select2-bootstrap.css']" position="replace"></xpath>
+		<xpath expr="link[@href='/web/static/src/less/fonts.less']" position="replace"></xpath>
+		<xpath expr="link[@href='/web/static/src/less/navbar.less']" position="replace"></xpath>
+		<xpath expr="link[@href='/web/static/src/less/mimetypes.less']" position="replace"></xpath>
+		<xpath expr="link[@href='/web/static/src/less/modal.less']" position="replace"></xpath>
+		<xpath expr="link[@href='/web/static/src/less/animation.less']" position="replace"></xpath>
+		<xpath expr="link[@href='/web/static/src/less/rainbow.less']" position="replace"></xpath>
+		<xpath expr="link[@href='/web/static/src/less/datepicker.less']" position="replace"></xpath>
+		<xpath expr="link[@href='/web_planner/static/src/less/web_planner_common.less']" position="replace"></xpath>
+		<xpath expr="link[@href='/web_tour/static/src/less/tip.less']" position="replace"></xpath>
+		<xpath expr="link[@href='/web_tour/static/src/less/keyframes.less']" position="replace"></xpath>
+
+		
+		<!--<xpath expr="script[@src='/web/static/lib/jquery/jquery.js']" position="replace">-->
+		<!--	<script type="text/javascript" src='/theme_bootstrap_4/static/lib/jquery/dist/jquery.js'></script>	-->
+		<!--</xpath>-->
+		
+
+		<xpath expr="script[@src='/web/static/lib/bootstrap/js/affix.js']" position="replace"></xpath>
+		<xpath expr="script[@src='/web/static/lib/bootstrap/js/alert.js']" position="replace"></xpath>
+		<xpath expr="script[@src='/web/static/lib/bootstrap/js/button.js']" position="replace"></xpath>
+		<xpath expr="script[@src='/web/static/lib/bootstrap/js/carousel.js']" position="replace"></xpath>
+		<xpath expr="script[@src='/web/static/lib/bootstrap/js/collapse.js']" position="replace"></xpath>
+		<xpath expr="script[@src='/web/static/lib/bootstrap/js/dropdown.js']" position="replace"></xpath>
+		<xpath expr="script[@src='/web/static/lib/bootstrap/js/modal.js']" position="replace"></xpath>
+		<xpath expr="script[@src='/web/static/lib/bootstrap/js/tooltip.js']" position="replace"></xpath>
+		<xpath expr="script[@src='/web/static/lib/bootstrap/js/popover.js']" position="replace"></xpath>
+		<xpath expr="script[@src='/web/static/lib/bootstrap/js/scrollspy.js']" position="replace"></xpath>
+		<xpath expr="script[@src='/web/static/lib/bootstrap/js/tab.js']" position="replace"></xpath>
+		<xpath expr="script[@src='/web/static/lib/bootstrap/js/transition.js']" position="replace"></xpath>
+		
+		<xpath expr="script[@src='/web/static/src/js/libs/bootstrap.js']" position="replace"></xpath>
+
+
+
+	</template>
+	
+	<template id="assets_editor" inherit_id="website.assets_editor" name="Backend Assets">
+	  <xpath expr="t[@t-call='web.less_helpers']" position="after">
+			<link rel="stylesheet" type="text/less" href="/web/static/lib/bootstrap/less/mixins/text-overflow.less"/>
+
+
+			<link rel="stylesheet" type="text/less" href='/web_editor/static/src/less/web_editor.common.less'/>
+			<link rel="stylesheet" type="text/less" href='/portal/static/src/less/website.ui.less'/>
+			<link rel="stylesheet" type="text/less" href='/portal/static/src/less/website.wrapwrap.less'/>
+			<link rel="stylesheet" type="text/less" href='/portal/static/src/less/bootstrap.extend.less'/>
+			<link rel="stylesheet" type="text/less" href='/portal/static/src/less/portal_frontend.less'/>
+			<link rel="stylesheet" type="text/less" href='/website/static/src/less/website.ui.components.less'/>
+			<link rel="stylesheet" type="text/less" href='/website/static/src/less/website.snippets.less'/>
+			<link rel="stylesheet" type="text/less" href='/website/static/src/less/website.zoomodoo.less'/>
+
+
+			<link rel="stylesheet" type="text/less" href='/web/static/src/less/navbar.less'/>
+
+
+		  <link rel="stylesheet" href='/website/static/src/less/website.snippets.less'/>
+			<link rel="stylesheet" href='/web_editor/static/src/less/web_editor.variables.less'/>
+			<!--<link rel="stylesheet" href='/web/static/lib/fontawesome/css/font-awesome.css'/>-->
+			<link rel="stylesheet" href='/web/static/lib/bootstrap-datetimepicker/src/less/_bootstrap-datetimepicker.less'/>
+			<link rel="stylesheet" href='/web/static/lib/select2/select2.css'/>
+			<link rel="stylesheet" href='/web/static/lib/select2-bootstrap-css/select2-bootstrap.css'/>
+			<link rel="stylesheet" href='/web/static/src/less/fonts.less'/>
+			<link rel="stylesheet" href='/web/static/src/less/navbar.less'/>
+			<link rel="stylesheet" href='/web/static/src/less/mimetypes.less'/>
+			<link rel="stylesheet" href='/web/static/src/less/modal.less'/>
+			<link rel="stylesheet" href='/web/static/src/less/animation.less'/>
+			<link rel="stylesheet" href='/web/static/src/less/rainbow.less'/>
+			<link rel="stylesheet" href='/web/static/src/less/datepicker.less'/>
+			<link rel="stylesheet" href='/web_planner/static/src/less/web_planner_common.less'/>
+			<link rel="stylesheet" href='/web_tour/static/src/less/tip.less'/>
+			<link rel="stylesheet" href='/web_tour/static/src/less/keyframes.less'/>
+		
+	  </xpath>
+  </template>
+
+
+	<template id="assets_backend" inherit_id="website.assets_backend" name="Backend Assets">
+	  <xpath expr="t[@t-call='web.less_helpers']" position="after">
+		  <!--<link rel="stylesheet" href='/website/static/src/less/website.snippets.less'/>-->
+			<!--<link rel="stylesheet" href='/web_editor/static/src/less/web_editor.variables.less'/>-->
+			<link rel="stylesheet" href='/web/static/lib/jquery.ui/jquery-ui.css'/>
+			<link rel="stylesheet" href='/web/static/lib/fontawesome/css/font-awesome.css'/>
+			<link rel="stylesheet" href='/web/static/lib/bootstrap-datetimepicker/src/less/_bootstrap-datetimepicker.less'/>
+			<link rel="stylesheet" href='/web/static/lib/select2/select2.css'/>
+			<link rel="stylesheet" href='/web/static/lib/select2-bootstrap-css/select2-bootstrap.css'/>
+			<link rel="stylesheet" href='/web/static/src/less/fonts.less'/>
+			<link rel="stylesheet" href='/web/static/src/less/navbar.less'/>
+			<link rel="stylesheet" href='/web/static/src/less/mimetypes.less'/>
+			<link rel="stylesheet" href='/web/static/src/less/modal.less'/>
+			<link rel="stylesheet" href='/web/static/src/less/animation.less'/>
+			<link rel="stylesheet" href='/web/static/src/less/rainbow.less'/>
+			<link rel="stylesheet" href='/web/static/src/less/datepicker.less'/>
+			<link rel="stylesheet" href='/web_planner/static/src/less/web_planner_common.less'/>
+			<link rel="stylesheet" href='/web_tour/static/src/less/tip.less'/>
+			<link rel="stylesheet" href='/web_tour/static/src/less/keyframes.less'/>
+			
+			<script src='/web/static/lib/bootstrap/js/affix.js'></script>
+			<script src='/web/static/lib/bootstrap/js/alert.js'></script>
+			<script src='/web/static/lib/bootstrap/js/button.js'></script>
+			<script src='/web/static/lib/bootstrap/js/carousel.js'></script>
+			<script src='/web/static/lib/bootstrap/js/collapse.js'></script>
+			<script src='/web/static/lib/bootstrap/js/dropdown.js'></script>
+			<script src='/web/static/lib/bootstrap/js/modal.js'></script>
+			<script src='/web/static/lib/bootstrap/js/tooltip.js'></script>
+			<script src='/web/static/lib/bootstrap/js/popover.js'></script>
+			<script src='/web/static/lib/bootstrap/js/scrollspy.js'></script>
+			<script src='/web/static/lib/bootstrap/js/tab.js'></script>
+			<script src='/web/static/lib/bootstrap/js/transition.js'></script>
+			<script type="text/javascript" src="/theme_bootstrap_4/static/js/bootstrap.js"></script>
+	  </xpath>
+  </template>
+
+
+	
+
+
+</odoo>
